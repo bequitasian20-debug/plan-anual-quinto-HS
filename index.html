@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Anual Interactivo - Expresión Artística (Cuarto Bachillerato)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f9;
+        }
+        .bg-montano-blue { background-color: #1F3C88; }
+        .bg-montano-secondary { background-color: #3F72AF; }
+        .bg-montano-yellow { background-color: #F2C94C; }
+        .text-montano-blue { color: #1F3C88; }
+        .text-montano-secondary { color: #3F72AF; }
+        .border-montano-blue { border-color: #1F3C88; }
+        .border-montano-secondary { border-color: #3F72AF; }
+        
+        /* Estilos de pestañas activas e inactivas */
+        .tab-btn {
+            background-color: #3F72AF;
+            color: #FFFFFF;
+            transition: all 0.2s ease-in-out;
+        }
+        .tab-btn:hover {
+            background-color: #2c5380;
+        }
+        .tab-btn.active {
+            background-color: #F2C94C;
+            color: #1F3C88;
+            font-weight: 700;
+            border-bottom: 4px solid #1F3C88;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- BARRA SUPERIOR DE ENCABEZADO INSTITUCIONAL -->
+    <header class="bg-montano-blue text-white p-4 shadow-md flex flex-wrap items-center justify-between gap-4">
+        <!-- LOGO INSTITUCIONAL -->
+        <div class="flex items-center gap-4">
+            <img src="https://admisiones.colegiomontano.edu.gt/assets/img/logo-cm-blanco.webp" 
+                 alt="Logo Colegio Montano" 
+                 class="h-12 max-h-12 object-contain"
+                 onerror="this.src='https://placehold.co/180x50/1F3C88/FFFFFF?text=Colegio+Montano'">
+            <div>
+                <h1 class="text-xl md:text-2xl font-bold uppercase tracking-wide">Colegio Montano Cortijo</h1>
+                <p class="text-xs md:text-sm text-yellow-300"><i>Pizarra Digital de Planificación Anual</i></p>
+            </div>
+        </div>
+
+        <!-- DATOS IDENTIFICADORES DEL CURSO -->
+        <div class="flex flex-wrap gap-4 text-xs md:text-sm bg-blue-950 bg-opacity-40 p-2.5 rounded-lg border border-blue-400/30">
+            <div><span class="text-yellow-400 font-semibold"><i>Curso:</i></span> Expresión Artística (Teatro y Danza)</div>
+            <div><span class="text-yellow-400 font-semibold"><i>Grado:</i></span> Quinto High School</div>
+            <div><span class="text-yellow-400 font-semibold"><i>Docente:</i></span> Miss Rebeca Sian</div>
+            <div><span class="text-yellow-400 font-semibold"><i>Ciclo Escolar:</i></span> 2027</div>
+        </div>
+
+        <!-- BOTÓN PANTALLA COMPLETA -->
+        <button onclick="toggleFullscreen()" class="bg-montano-yellow text-montano-blue font-bold px-4 py-2 rounded-lg shadow-md hover:bg-yellow-400 transition-colors flex items-center gap-2 text-sm">
+            <span>🖥️</span> <i>Pantalla Completa</i>
+        </button>
+    </header>
+
+    <!-- BARRA DE NAVEGACIÓN HORIZONTAL POR PESTAÑAS -->
+    <nav class="bg-slate-200 border-b border-gray-300 px-4 pt-3 flex flex-wrap gap-2 overflow-x-auto">
+        <button id="btn-tab1" onclick="switchTab('tab1')" class="tab-btn active px-4 py-2.5 rounded-t-lg font-medium text-sm">
+            <i>I) DESCRIPTOR</i>
+        </button>
+        <button id="btn-tab2" onclick="switchTab('tab2')" class="tab-btn px-4 py-2.5 rounded-t-lg font-medium text-sm">
+            <i>II) OBJETIVOS</i>
+        </button>
+        <button id="btn-tab3" onclick="switchTab('tab3')" class="tab-btn px-4 py-2.5 rounded-t-lg font-medium text-sm">
+            <i>III) COMPETENCIAS</i>
+        </button>
+        <button id="btn-tab4" onclick="switchTab('tab4')" class="tab-btn px-4 py-2.5 rounded-t-lg font-medium text-sm">
+            <i>IV) INDICADORES</i>
+        </button>
+        <button id="btn-tab5" onclick="switchTab('tab5')" class="tab-btn px-4 py-2.5 rounded-t-lg font-medium text-sm">
+            <i>V) MÉTODOS</i>
+        </button>
+        <button id="btn-tab6" onclick="switchTab('tab6')" class="tab-btn px-4 py-2.5 rounded-t-lg font-medium text-sm">
+            <i>VI) BIBLIOGRAFÍA</i>
+        </button>
+        <button id="btn-tab7" onclick="switchTab('tab7')" class="tab-btn px-4 py-2.5 rounded-t-lg font-medium text-sm">
+            <i>VII) CONTENIDOS</i>
+        </button>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL DE CONTENIDOS -->
+    <main class="flex-grow p-4 md:p-6 max-w-7xl mx-auto w-full">
+
+        <!-- PESTAÑA I: DESCRIPTOR DEL CURSO -->
+        <section id="tab1" class="tab-content block">
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-blue mb-6">
+                <h2 class="text-2xl font-bold text-montano-blue mb-4"><i>I) DESCRIPTOR DEL CURSO DE EXPRESIÓN ARTÍSTICA</i></h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    En el área de expresión artística se enfoca el conocimiento y desarrollo de las habilidades artísticas y de los distintos lenguajes de las disciplinas artísticas presentes en el espectro cultural y educativo. La música, la danza y el movimiento, el teatro, las artes plásticas, las artes audiovisuales y las culturas de Guatemala tanto desde la perspectiva particular como del ámbito de la convergencia de enunciados desde su propio contexto social y cultural.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Además, se orienta al conocimiento del arte guatemalteco, resaltando las características de cada una de las culturas que coexisten en Guatemala. Estimula el conocimiento de los gestores de esa cultura, es decir, artistas, creadores y organizaciones presentes en la comunidad. Vincula el establecimiento de conexiones con otros aspectos del desarrollo y del aprendizaje permitiendo que el estudiante logre un mayor nivel de conocimiento de sí mismo y del mundo en que vive, fomentando hábitos y promoviendo valores.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    El estudiante investigará sobre las diferentes expresiones artísticas que se han dado en Guatemala a lo largo de su historia, abarcando desde la época prehispánica hasta el presente, reafirmando su ciudadanía desde la experiencia y vivencia de diferentes obras escénicas y visuales.
+                </p>
+            </div>
+
+            <!-- COMPONENTES DEL CURSO -->
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-secondary">
+                <h3 class="text-xl font-bold text-montano-secondary mb-4"><i>COMPONENTES DE EXPRESIÓN ARTÍSTICA EN DIVERSIFICADO</i></h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <h4 class="font-bold text-montano-blue mb-1"><i>1. Desarrollo Integral</i></h4>
+                        <p class="text-sm text-gray-700">Ofrece el desarrollo de temas y la búsqueda de elementos necesarios para que los estudiantes encuentren tiempos y espacios adecuados para su desarrollo auditivo, visual, corporal, intelectual, creativo y espiritual mediante el estímulo y la técnica artística.</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <h4 class="font-bold text-montano-blue mb-1"><i>2. Experiencia</i></h4>
+                        <p class="text-sm text-gray-700">La vivencia de las artes permite el autoconocimiento de la persona, fortalece la autoestima y promueve la comunicación; facilitando la interrelación cultural, multiétnica y pluricultural.</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <h4 class="font-bold text-montano-blue mb-1"><i>3. Estímulo</i></h4>
+                        <p class="text-sm text-gray-700">La apreciación de las artes implica la escucha atenta y la valoración de sus elementos, lo cual conduce a la reflexión, la creación y la manifestación de diversas actitudes.</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <h4 class="font-bold text-montano-blue mb-1"><i>4. Aceptación</i></h4>
+                        <p class="text-sm text-gray-700">Permite el desarrollo gradual mediante la aceptación de las propias limitaciones, destrezas y habilidades en la participación de las diferentes actividades grupales e individuales.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PESTAÑA II: OBJETIVOS GENERALES -->
+        <section id="tab2" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-blue">
+                <h2 class="text-2xl font-bold text-montano-blue mb-6"><i>II) OBJETIVOS GENERALES DEL CURSO</i></h2>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                        <span class="bg-montano-yellow text-montano-blue font-bold px-3 py-1 rounded-full text-lg">1</span>
+                        <div>
+                            <h3 class="font-bold text-montano-blue text-lg"><i>Producción y Creación Artística</i></h3>
+                            <p class="text-gray-700">Producir obras artísticas a través de la danza y el teatro que representen su entorno y cultura.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                        <span class="bg-montano-yellow text-montano-blue font-bold px-3 py-1 rounded-full text-lg">2</span>
+                        <div>
+                            <h3 class="font-bold text-montano-blue text-lg"><i>Apreciación Estética</i></h3>
+                            <p class="text-gray-700">Apreciar el arte por medio de las expresiones de la danza y el teatro.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                        <span class="bg-montano-yellow text-montano-blue font-bold px-3 py-1 rounded-full text-lg">3</span>
+                        <div>
+                            <h3 class="font-bold text-montano-blue text-lg"><i>Comunicación y Sensibilidad Social</i></h3>
+                            <p class="text-gray-700">Transmitir su percepción de la realidad social y cultural a través del lenguaje del teatro y la danza.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PESTAÑA III: COMPETENCIAS -->
+        <section id="tab3" class="tab-content hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- COMPETENCIAS ACADÉMICAS DEL ÁREA -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-blue">
+                    <h2 class="text-xl font-bold text-montano-blue mb-4"><i>III.A) COMPETENCIAS ACADÉMICAS DEL ÁREA</i></h2>
+                    <ul class="space-y-3">
+                        <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-montano-secondary text-sm text-gray-800">
+                            <i>Explica y describe los lenguajes de las disciplinas artísticas básicas.</i>
+                        </li>
+                        <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-montano-secondary text-sm text-gray-800">
+                            <i>Evidencia el desarrollo de habilidades relacionadas con la expresión artística a través de la creación, interpretación y ejecución de acciones artísticas.</i>
+                        </li>
+                        <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-montano-secondary text-sm text-gray-800">
+                            <i>Analiza los roles y funciones de las artes en las culturas humanas a través de la historia.</i>
+                        </li>
+                        <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-montano-secondary text-sm text-gray-800">
+                            <i>Explica los roles y funciones de las artes en las culturas de Guatemala.</i>
+                        </li>
+                        <li class="p-3 bg-blue-50 rounded-lg border-l-4 border-montano-secondary text-sm text-gray-800">
+                            <i>Demuestra habilidades específicas en una de las artes a través de la creación propia y la ejecución.</i>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- COMPETENCIAS INSTITUCIONALES CM (FIJAS) -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-yellow">
+                    <h2 class="text-xl font-bold text-montano-blue mb-4"><i>III.B) COMPETENCIAS INSTITUCIONALES CM (FIJAS)</i></h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Pensamiento crítico y resolución de problemas</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Colaboración y trabajo en equipo</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Competencias digitales</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Comunicación efectiva</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Creatividad e innovación</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Aprendizaje autónomo y adaptabilidad</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Conciencia global y cultural</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Ética y ciudadanía digital</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Gestión emocional y resiliencia</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Conciencia ecológica y sostenibilidad</i></span>
+                        <span class="bg-amber-100 text-montano-blue font-semibold px-3 py-1.5 rounded-full text-xs border border-amber-300"><i>Desempeño de roles de liderazgo</i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PESTAÑA IV: INDICADORES DE LOGRO -->
+        <section id="tab4" class="tab-content hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- INDICADORES DE TEATRO -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-blue">
+                    <h2 class="text-xl font-bold text-montano-blue mb-4"><i>IV.A) INDICADORES DE LOGRO: TEATRO</i></h2>
+                    <ul class="space-y-3">
+                        <li class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-sm">
+                            <span class="font-bold text-montano-secondary"><i>1.1</i></span> Enumera los elementos estructurales, las cualidades expresivas y los principios de organización de las artes visuales y auditivas.
+                        </li>
+                        <li class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-sm">
+                            <span class="font-bold text-montano-secondary"><i>2.1</i></span> Aplica conocimientos en la creación y ejecución de acciones artísticas.
+                        </li>
+                        <li class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-sm">
+                            <span class="font-bold text-montano-secondary"><i>3.1</i></span> Explica los roles y funciones de las expresiones artísticas en la cotidianeidad de las sociedades en el tiempo y el espacio.
+                        </li>
+                        <li class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-sm">
+                            <span class="font-bold text-montano-secondary"><i>4.1</i></span> Maneja las técnicas y tecnologías en una de las artes.
+                        </li>
+                        <li class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-sm">
+                            <span class="font-bold text-montano-secondary"><i>4.2</i></span> Manifiesta gusto y satisfacción en sus ejecuciones artísticas.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- INDICADORES DE DANZA -->
+                <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-secondary">
+                    <h2 class="text-xl font-bold text-montano-secondary mb-4"><i>IV.B) INDICADORES DE LOGRO: DANZA</i></h2>
+                    <ul class="space-y-3">
+                        <li class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-sm">
+                            <span class="font-bold text-montano-blue"><i>1.1</i></span> Aplica conocimientos en la creación y ejecución de acciones artísticas.
+                        </li>
+                        <li class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-sm">
+                            <span class="font-bold text-montano-blue"><i>2.1</i></span> Evidencia comprensión de los roles y funciones de las expresiones artísticas en la dinámica sociocultural guatemalteca.
+                        </li>
+                        <li class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-sm">
+                            <span class="font-bold text-montano-blue"><i>2.2</i></span> Establece las características propias, las similitudes y las formas de cooperación e intercambio de símbolos, medios y técnicas entre las artes.
+                        </li>
+                        <li class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-sm">
+                            <span class="font-bold text-montano-blue"><i>2.3</i></span> Crea y participa en montajes artísticos colectivos.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PESTAÑA V: MÉTODOS DIDÁCTICOS (INSTITUCIONAL) -->
+        <section id="tab5" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-blue mb-6">
+                <h2 class="text-2xl font-bold text-montano-blue mb-2"><i>V) MÉTODOS DIDÁCTICOS INSTITUCIONALES (COLEGIO MONTANO)</i></h2>
+                <p class="text-gray-600 text-sm mb-6"><i>Metodología Activo-Colaborativa y Constructivista basada en el Período Doble de 70 Minutos.</i></p>
+
+                <!-- 4 MOMENTOS DE CLASE -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                        <h3 class="font-bold text-montano-blue mb-2"><i>1. Introducción Motivante</i></h3>
+                        <p class="text-xs text-gray-700">Activación de presaberes mediante diagnóstico interactivo: dinamización, diálogo, adivinanzas, lluvia de ideas y juegos.</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                        <h3 class="font-bold text-montano-blue mb-2"><i>2. Trabajo Individual</i></h3>
+                        <p class="text-xs text-gray-700">Desarrollo de habilidades y destrezas autónomas mediante proyectos, guías de estudio, esquemas y carteles.</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                        <h3 class="font-bold text-montano-blue mb-2"><i>3. Trabajo en Equipo</i></h3>
+                        <p class="text-xs text-gray-700">Interacción grupal con roles asignados bajo la consigna <i>"todos para uno y uno para todos"</i>, integrando destrezas individuales.</p>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-200">
+                        <h3 class="font-bold text-montano-blue mb-2"><i>4. Plenaria</i></h3>
+                        <p class="text-xs text-gray-700">Exposición pública rotativa, desarrollo de oratoria, diálogo socrático y sustentación de conclusiones en el aula.</p>
+                    </div>
+                </div>
+
+                <!-- VALORES INSTITUCIONALES CM -->
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
+                    <h3 class="font-bold text-montano-blue mb-2"><i>Valores y Principios en el Aula CM</i></h3>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="bg-white px-3 py-1 rounded-md border text-gray-700"><i>Tolerancia a diversas formas de pensar</i></span>
+                        <span class="bg-white px-3 py-1 rounded-md border text-gray-700"><i>Trabajo cooperativo permanente</i></span>
+                        <span class="bg-white px-3 py-1 rounded-md border text-gray-700"><i>Lealtad e identificación institucional</i></span>
+                        <span class="bg-white px-3 py-1 rounded-md border text-gray-700"><i>Solidaridad y generosidad</i></span>
+                        <span class="bg-white px-3 py-1 rounded-md border text-gray-700"><i>Calidad en cada proyecto</i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PESTAÑA VI: BIBLIOGRAFÍA Y HERRAMIENTAS -->
+        <section id="tab6" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-blue">
+                <h2 class="text-2xl font-bold text-montano-blue mb-4"><i>VI) BIBLIOGRAFÍA Y HERRAMIENTAS DIGITALES</i></h2>
+                <div class="space-y-4">
+                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                        <h3 class="font-bold text-montano-secondary"><i>Plataformas y Tecnologías Educativas</i></h3>
+                        <p class="text-gray-700 text-sm mt-1">Plataforma Educativa Edoo, Canva, soporte audiovisual digital e investigaciones web para análisis de obras.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+                        <h3 class="font-bold text-montano-secondary"><i>Fuentes Bibliográficas Institucionales</i></h3>
+                        <p class="text-gray-700 text-sm mt-1">Currículum Nacional Base (CNB) Guatemala - Subárea de Expresión Artística (Nivel Diversificado).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PESTAÑA VII: CONTENIDOS (2 UNIDADES TEMÁTICAS) -->
+        <section id="tab7" class="tab-content hidden">
+            <div class="bg-white rounded-xl shadow-md p-6 border-l-8 border-montano-yellow mb-6">
+                <h2 class="text-2xl font-bold text-montano-blue mb-2"><i>VII) CONTENIDOS ORGANIZADOS POR UNIDADES TEMÁTICAS</i></h2>
+                <p class="text-gray-600 text-sm mb-4"><i>Planificación estructurada exclusivamente en 2 Unidades: Unidad I (Teatro) y Unidad II (Danza).</i></p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- UNIDAD I: TEATRO -->
+                    <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-200">
+                        <h3 class="text-xl font-bold text-montano-blue border-b-2 border-montano-blue pb-2 mb-4">
+                            <i>UNIDAD I: TEATRO Y ARTE DRAMÁTICO</i>
+                        </h3>
+                        <ul class="space-y-2 text-sm text-gray-800">
+                            <li class="flex items-start gap-2"><span class="text-montano-secondary">🔹</span> Identificación de los signos del teatro al observar una obra teatral.</li>
+                            <li class="flex items-start gap-2"><span class="text-montano-secondary">🔹</span> Colaboración en eventos culturales y artísticos del establecimiento.</li>
+                            <li class="flex items-start gap-2"><span class="text-montano-secondary">🔹</span> Estudio, análisis y apreciación de obras artísticas de distintos movimientos.</li>
+                            <li class="flex items-start gap-2"><span class="text-montano-secondary">🔹</span> Apreciación de los movimientos artísticos occidentales.</li>
+                            <li class="flex items-start gap-2"><span class="text-montano-secondary">🔹</span> Ejecución de una pieza artística, escénica y/o visual (plástica).</li>
+                            <li class="flex items-start gap-2"><span class="text-montano-secondary">🔹</span> Ejecución de ejercicios de expresión corporal, facial, vocal y manual.</li>
+                            <li class="flex items-start gap-2"><span class="text-montano-secondary">🔹</span> Presentación de mensajes en lenguaje oral o gestual (declamación, canto, mimos, etc.).</li>
+                        </ul>
+                    </div>
+
+                    <!-- UNIDAD II: DANZA -->
+                    <div class="bg-amber-50/50 p-5 rounded-xl border border-amber-200">
+                        <h3 class="text-xl font-bold text-montano-blue border-b-2 border-montano-yellow pb-2 mb-4">
+                            <i>UNIDAD II: DANZA Y MOVIMIENTO</i>
+                        </h3>
+                        <ul class="space-y-2 text-sm text-gray-800">
+                            <li class="flex items-start gap-2"><span class="text-yellow-600">🔸</span> Colaboración en eventos culturales y artísticos del establecimiento.</li>
+                            <li class="flex items-start gap-2"><span class="text-yellow-600">🔸</span> Descripción de las expresiones artísticas multiculturales en Guatemala.</li>
+                            <li class="flex items-start gap-2"><span class="text-yellow-600">🔸</span> Valoración de la cultura popular guatemalteca.</li>
+                            <li class="flex items-start gap-2"><span class="text-yellow-600">🔸</span> Música tradicional, popular y de proyección cultural de Guatemala.</li>
+                            <li class="flex items-start gap-2"><span class="text-yellow-600">🔸</span> Artes populares y tradicionales en el contexto del patrimonio cultural guatemalteco.</li>
+                            <li class="flex items-start gap-2"><span class="text-yellow-600">🔸</span> Conexiones entre las artes visuales, música y artes escénicas.</li>
+                            <li class="flex items-start gap-2"><span class="text-yellow-600">🔸</span> Creación colectiva de montajes escénicos de música, danza y teatro.</li>
+                            <li class="flex items-start gap-2"><span class="text-yellow-600">🔸</span> Montajes artísticos con pertinencia intercultural.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer class="bg-montano-blue text-white text-center py-3 text-xs border-t border-blue-900 mt-auto">
+        <i>Colegio Montano Cortijo &copy; 2027 - Planificación Anual Integrada de Expresión Artística (Quinto High School)</i>
+    </footer>
+
+    <!-- LÓGICA JAVASCRIPT PARA INTERACCIÓN DE PESTAÑAS Y PANTALLA COMPLETA -->
+    <script>
+        function switchTab(tabId) {
+            // Ocultar todos los contenidos
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('block');
+                content.classList.add('hidden');
+            });
+
+            // Desactivar todos los botones de pestañas
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Activar el contenido y botón seleccionados
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+                targetContent.classList.add('block');
+            }
+
+            const targetBtn = document.getElementById('btn-' + tabId);
+            if (targetBtn) {
+                targetBtn.classList.add('active');
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error al intentar activar pantalla completa: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
